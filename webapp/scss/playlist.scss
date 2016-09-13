@@ -1,0 +1,100 @@
+.playlist {
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+.playlist-header {
+    flex: none;
+    border-bottom: 1px solid grey;
+    font-weight: bold;
+
+    &:after {
+        content: '';
+        overflow-y: scroll;
+        visibility: hidden;
+        height: 0;
+    }
+}
+
+.playlist-empty {
+    padding-top: 30px;
+    font-style: italic;
+    text-align: center;
+}
+
+.playlist-body {
+    flex: 1;
+    padding-bottom: 5px;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.playlist-header, .playlist-item {
+    display: flex;
+    line-height: 1.5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    > .playlist-cell {
+        margin-left: 10px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:last-child {
+            margin-right: 10px;
+        }
+    }
+}
+
+.playlist-column {
+    @mixin column($grow, $shrink, $initial) {
+        flex: $grow $shrink $initial;
+    }
+
+    &-index     { @include column(0, 0, 50px); }
+    &-title     { @include column(2, 0, 100px); }
+    &-artist    { @include column(2, 0, 100px); }
+    &-file      { @include column(1, 0, 100px); }
+    &-duration  { @include column(0, 0, 70px); text-align: right }
+    &-controls  { @include column(0, 0, 30px); text-align: right }
+}
+
+.playlist-item.active {
+    background-color: orange;
+}
+
+.playlist-item:nth-child(1n + 2) {
+    border-top: 1px solid #e5e5e5;
+}
+
+.playlist-column-controls {
+    .icon-button {
+        opacity: 0.0;
+    }
+
+    .remove {
+        color: red;
+    }
+}
+
+.playlist-item:hover .icon-button {
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1.0;
+    }
+}
+
+.playlist-footer {
+    padding: 2px;
+    flex: none;
+
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: right;
+}

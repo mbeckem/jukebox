@@ -1,0 +1,96 @@
+.file-browser {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.file-browser-header {
+    display: flex;
+    flex: none;
+    align-items: center;
+
+    line-height: 1.5;
+
+    border-bottom: 1px solid grey;
+}
+
+.file-browser-path {
+    flex: 1;
+    vertical-align: middle;
+
+    margin-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: 600;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-browser-button {
+    cursor: pointer;
+
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    padding: 2px;
+    margin: 2px;
+
+    vertical-align: middle;
+    text-align: center;
+}
+
+.file-browser-body {
+    padding-bottom: 5px;
+    flex: 1;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.file-browser-item {
+    display: flex;
+    align-items: center;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 1.5;
+
+    &:nth-child(1n + 2) {
+        border-top: 1px solid #e5e5e5;
+    }
+}
+
+.file-browser-item-icon {
+    flex: none;
+}
+
+.file-browser-item-name {
+    flex: 1;
+    margin-left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.file-browser-item-controls {
+    flex: none;
+    margin-right: 5px;
+}
+
+.file-browser-item-controls .icon-button {
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1.0;
+    }
+}
+
+.file-browser-status {
+    padding-top: 30px;
+    font-style: italic;
+    text-align: center;
+}

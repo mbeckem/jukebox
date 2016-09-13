@@ -1,0 +1,122 @@
+@import "file-browser";
+@import "player";
+@import "playlist";
+
+$font-family: Liberation Sans, Verdana, sans-serif;
+$font-color: #222;
+
+html, body, #container { height: 100%; }
+
+body {
+    font-family: $font-family;
+    color: $font-color;
+}
+
+@mixin horizontal-scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.application {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    .panes {
+        display: flex;
+        height: 100%;
+
+       .navigation-pane {
+            flex: none;
+            width: 50px;
+            height: 100%;
+            @include horizontal-scroll;
+
+            background-color: green;
+        }
+
+        .files-pane {
+            flex: 1 0 auto;
+            width: 400px;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .player-pane {
+            display: flex;
+            flex-direction: column;
+
+            flex: 3 0 auto;
+            width: 600px;
+            height: 100%;
+            overflow: hidden;
+
+            border-left: 2px solid grey;
+        }
+    }
+}
+
+.notifications {
+    position: absolute;
+
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 50%;
+    max-width: 500px;
+    z-index: 99;
+
+    pointer-events: none;
+
+    .notification {
+        margin-top: 10px;
+        padding: 5px;
+
+        border: 1px solid black;
+        background-color: blue;
+
+        line-height: 1.5;
+        //white-space: pre-wrap;
+        word-wrap: break-word;
+
+        pointer-events: auto;
+
+        .header {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        &.error {
+            background-color: red;
+        }
+    }
+}
+
+.playlist {
+    flex: 1;
+}
+
+.player {
+    flex: none;
+    border-top: 2px solid grey;
+}
+
+$link-color: #07C;
+
+a, .link {
+    cursor: pointer;
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+        color: lighten($link-color, 20%);
+    }
+}
+
+.icon-button {
+    cursor: pointer;
+    padding: 2px;
+
+    user-select: none;
+}

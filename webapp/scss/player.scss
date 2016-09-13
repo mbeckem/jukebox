@@ -1,0 +1,86 @@
+@import "mixins";
+
+.player {
+    padding: 5px;
+    padding-top: 10px;
+
+    audio {
+        display: none;
+    }
+}
+
+.player-title {
+    text-align: center;
+}
+
+.player-control-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 0 auto;
+
+    > * {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.player-control-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    flex: none;
+}
+
+.player-control-button {
+    cursor: pointer;
+
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    padding: 2px;
+    margin: 4px;
+
+    vertical-align: middle;
+    text-align: center;
+}
+
+.player-progress-container {
+    flex: 1;
+    background-color: #ddd;
+}
+
+.player-progress {
+    background-color: black;
+    height: 10px;
+    transition: width 200ms;
+
+    &.seeking {
+        transition: width 0ms;
+    }
+}
+
+.player-position {
+    min-width: 10ch;
+}
+
+.player-volume-container {
+    flex: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.player-volume-bar-container {
+    margin-left: 5px;
+    width: 60px;
+    background-color: #ddd;
+}
+
+.player-volume-bar {
+    background-color: black;
+    height: 10px;
+}

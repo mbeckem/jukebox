@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{'/static/css/normalize.css' | join_url(config.base_url)}}" rel="stylesheet">
+    <link href="{{'/static/css/font-awesome.min.css' | join_url(config.base_url)}}" rel="stylesheet">
+    <link href="{{'/static/css/main.css' | join_url(config.base_url)}}" rel="stylesheet">
+    <title>Jukebox</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script type="text/javascript" charset="utf-8">
+        var GLOBAL_CONFIG = {{config | json}};
+    </script>
+    <script src="{{'/static/js/deps.js' | join_url(config.base_url)}}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{'/static/js/main.js' | join_url(config.base_url)}}" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

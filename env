@@ -1,0 +1,3 @@
+#!/bin/bash
+export BUILD_ROOT=$HOME/build/jukebox
+source $HOME/virtualenvs/jukebox/bin/activate

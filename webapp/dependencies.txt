@@ -1,0 +1,9 @@
+babel-polyfill
+react
+react-dom
+redux
+redux-thunk
+react-redux
+reselect
+react-addons-shallow-compare
+classnames
