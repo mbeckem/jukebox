@@ -44,6 +44,7 @@ debug:
 
 deps:
 	@echo "Installing dependencies"
+	@pip install -r requirements.txt
 	@npm install
 
 watch: debug
