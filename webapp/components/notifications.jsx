@@ -5,6 +5,7 @@ const headers = {
     "warning": "Warning.",
 };
 
+// Renders a list of notifications.
 const Notifications = React.createClass({
     propTypes: {
         notifications: PropTypes.array.isRequired,

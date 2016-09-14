@@ -55,6 +55,9 @@ function request(options) {
     });
 }
 
+// Takes an url string and a query object and
+// returns a url string that contains all of the query object's properties
+// as properly escaped query arguments.
 export function encodeQuery(url, query) {
     return url + "?" + Object.keys(query).map(
         key => encodeURIComponent(key) + "=" + encodeURIComponent(query[key])
@@ -80,6 +83,8 @@ export function post(url, body, contentType = "application/json") {
     });
 }
 
+// List the files in the given directory.
+// Returns a promise which will resolve to an array of files.
 export function listDirectory(path) {
     return get(LIST_DIRECTORY, { path })
         .then(files => {
@@ -90,28 +95,36 @@ export function listDirectory(path) {
         });
 }
 
-function mapDirectoryTree(children, parentPath) {
-    return children.map(f => {
-        let file = File.create(parentPath, f.name, f.type, f.size);
-        if (f.type === "directory") {
-            return { file, items: mapDirectoryTree(f.files, File.path(file)) };
-        } else {
-            return { file, items: null };
-        }
-    });
-}
-
+// Lists the files in the given directory and all subdirectories.
+// Returns a promise which will resolve to a tree of nodes,
+// each either representing a directory or a plain file.
 export function listDirectoryRecursive(path) {
+    function mapDirectoryTree(children, parentPath) {
+        return children.map(f => {
+            let file = File.create(parentPath, f.name, f.type, f.size);
+            if (f.type === "directory") {
+                return { file, items: mapDirectoryTree(f.files, File.path(file)) };
+            } else {
+                return { file, items: null };
+            }
+        });
+    }
+
     return get(LIST_DIRECTORY, { path, recursive: 1})
         .then(files => {
             return mapDirectoryTree(files, path);
         });
 }
 
+// Fetches audio metadata for the given list of file paths.
+// Returns a promise which will resolve to an array of metadata
+// objects.
 export function fetchMetadata(paths) {
     return post(METADATA_BULK, JSON.stringify(paths));
 }
 
+// Returns the absolute file path for the given file.
+// The result string can be used to download the file.
 export function fileUrl(path) {
     function escapePath(path) {
         function* escapedParts(path) {

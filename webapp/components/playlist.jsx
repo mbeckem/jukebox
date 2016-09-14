@@ -7,6 +7,7 @@ import { formatDuration } from "../format.js";
 
 import TextLink from "./text_link.jsx";
 
+// Renders a single playlist item.
 const PlaylistItem = React.createClass({
     propTypes: {
         onActivate: PropTypes.func.isRequired,
@@ -59,6 +60,7 @@ const PlaylistItem = React.createClass({
     }
 });
 
+// Renders a list of playlist items.
 const Playlist = React.createClass({
     propTypes: {
         playlist: PropTypes.array.isRequired,

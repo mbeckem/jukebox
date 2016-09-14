@@ -2,6 +2,7 @@ import { listDirectory } from "../api.js";
 
 export const FETCH_FOLDER = "FETCH_FOLDER";
 
+// An action that fetches the content of the given folder.
 export function fetchFolder(path) {
     return (dispatch, getState) => {
         const { folder } = getState();

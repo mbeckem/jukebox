@@ -14,32 +14,6 @@ function bounds(low, high, val) {
     return Math.max(low, Math.min(high, val));
 }
 
-// // Call a function at most every N milliseconds.
-// function rateLimit(func, millis) {
-//     let lastCall = null;
-//     let scheduledCall = null;
-
-//     function call(args) {
-//         lastCall = Date.now();
-//         func(...args);
-//     }
-
-//     function limited(...args) {
-//         const now = Date.now();
-//         const nextCall = lastCall === null ? now : lastCall + millis;
-//         if (nextCall <= now) {
-//             call(args);
-//         } else {
-//             if (scheduledCall !== null) {
-//                 clearTimeout(scheduledCall);
-//             }
-
-//             scheduledCall = setTimeout(() => call(args), nextCall - now);
-//         }
-//     };
-//     return limited;
-// }
-
 const Progress = React.createClass({
     propTypes: {
         currentTime: PropTypes.number.isRequired,

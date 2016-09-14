@@ -6,6 +6,7 @@ import { parent, File } from "../models.js";
 
 import TextLink from "./text_link.jsx";
 
+// The file browser renders the content of a directory.
 const FileBrowser = React.createClass({
     propTypes: {
         onFetchFolder: PropTypes.func.isRequired,
@@ -16,6 +17,7 @@ const FileBrowser = React.createClass({
         items: PropTypes.array.isRequired,
     },
 
+    // Cache scroll positions for visited directories.
     scrollCache: {},
 
     loadFolder(path) {
@@ -34,6 +36,8 @@ const FileBrowser = React.createClass({
         const { path, state } = this.props;
         const { path: prevPath, state: prevState} = prevProps;
 
+        // Remember a previous scroll position when a known directory
+        // is visited again.
         if ((path === prevPath && prevState === "loading" && state === "done")
             || (path !== prevPath) && state === "done")
         {

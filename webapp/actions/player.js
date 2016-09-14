@@ -1,5 +1,6 @@
 export const CHANGE_CURRENT_ITEM = "CHANGE_CURRENT_ITEM";
 
+// Set the player's current item.
 export function changeCurrentItem(itemId) {
     return {
         type: CHANGE_CURRENT_ITEM,
@@ -13,6 +14,8 @@ export const Direction = {
     RANDOM: "DIRECTION_RANDOM",
 };
 
+// Advance the player in the given direction,
+// taking the current playlist into account.
 export function advancePlayer(direction, wrap) {
     return (dispatch, getState) => {
         const { player, playlist } = getState();

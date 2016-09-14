@@ -7,6 +7,7 @@ export const PLAYLIST_ADD_ITEMS = "PLAYLIST_ADD_ITEMS";
 export const PLAYLIST_REMOVE_ITEM = "PLAYLIST_REMOVE_ITEM";
 export const PLAYLIST_CLEAR = "PLAYLIST_CLEAR";
 
+// Append the given list of playlist items to the end of the playlist.
 export function playlistAddItems(items) {
     return {
         type: PLAYLIST_ADD_ITEMS,
@@ -14,6 +15,7 @@ export function playlistAddItems(items) {
     };
 }
 
+// Remove the item with the given id from the playlist.
 export function playlistRemoveItem(itemId) {
     return {
         type: PLAYLIST_REMOVE_ITEM,
@@ -21,12 +23,15 @@ export function playlistRemoveItem(itemId) {
     };
 }
 
+// Remove all items.
 export function playlistClear() {
     return {
         type: PLAYLIST_CLEAR,
     };
 }
 
+// Add an array of files to the playlist.
+// Fetches the file's metadata before appending them.
 export function playlistAddFiles(files) {
     return (dispatch, getState) => {
         if (files.length === 0) {

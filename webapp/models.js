@@ -15,6 +15,9 @@ export function join(...paths) {
     return result === "" ? "/" : result;
 }
 
+// Split the path into "parent" and "child".
+// Parent contains all path segments except for the last one,
+// which is stored in child.
 export function split(path) {
     let child = "";
     let parent = "";
@@ -35,6 +38,7 @@ export function parent(path) {
     return split(path).parent;
 }
 
+// Returns the filename of "path".
 export function child(path) {
     return split(path).child;
 }
@@ -59,6 +63,9 @@ export function* parts(path) {
     }
 }
 
+// Splits the filename into basename and extension.
+// Everything up the last dot is the filename.
+// The extension does not include the dot.
 export function splitext(name) {
     const dot = name.lastIndexOf(".");
 
@@ -74,16 +81,20 @@ export function splitext(name) {
 export const File = {
     genId: generator("file"),
 
+    // Creates a new file object with a unique id.
+    // "type" must be either "file" or "directory".
     create(directory, name, type, size = 0) {
         return {
             id: File.genId(), directory, name, type, size
         };
     },
 
+    // Returns the absolute path of the given file.
     path(file) {
         return join(file.directory, file.name);
     },
 
+    // Returns the basename of the given file.
     basename(file) {
         if (file.type === "directory") {
             return file.name;
@@ -91,6 +102,7 @@ export const File = {
         return splitext(file.name).basename;
     },
 
+    // Returns the extension of the given file.
     extension(file) {
         if (file.type === "directory") {
             return "";
@@ -102,6 +114,9 @@ export const File = {
 export const PlaylistItem = {
     genId: generator("playlistItem"),
 
+    // Creates a new playlist item with a unique id
+    // and the given properties.
+    // Audio metadata such as title or artist can be set to null.
     create(file, { title, artist, album, duration}) {
         return {
             id: PlaylistItem.genId(), file,
@@ -113,6 +128,8 @@ export const PlaylistItem = {
 export const Notification = {
     genId: generator("notification"),
 
+    // Creates a new notification object with the given type
+    // and message.
     create(type, message) {
         return {
             id: Notification.genId(), type, message

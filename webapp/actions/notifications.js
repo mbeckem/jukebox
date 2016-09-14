@@ -15,6 +15,7 @@ export function removeNotification(notificationId) {
     };
 }
 
+// Show the given notification for a number of milliseconds.
 export function showNotification(notification, timeout = 10000) {
     return (dispatch) => {
         dispatch(addNotification(notification));
