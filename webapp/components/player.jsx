@@ -436,16 +436,16 @@ const Player = React.createClass({
         return (
             <div className="player-control-bar">
                 <div className="player-control-buttons">
-                    <div className="player-control-button" onClick={this.onPreviousClick}>
+                    <div className="player-control-button" title="Previous" onClick={this.onPreviousClick}>
                         <span className="fa fa-fast-backward" />
                     </div>
-                    <div className="player-control-button" onClick={this.onPlayPauseClick}>
+                    <div className="player-control-button" title={playing ? "Pause" : "Play"} onClick={this.onPlayPauseClick}>
                         <span className={"fa " + (playing ? "fa-pause" : "fa-play")} />
                     </div>
-                    <div className="player-control-button" onClick={this.onStopClick}>
+                    <div className="player-control-button" title="Stop" onClick={this.onStopClick}>
                         <span className="fa fa-stop" />
                     </div>
-                    <div className="player-control-button" onClick={this.onNextClick}>
+                    <div className="player-control-button" title="Next" onClick={this.onNextClick}>
                         <span className="fa fa-fast-forward" />
                     </div>
                 </div>
