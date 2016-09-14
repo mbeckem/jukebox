@@ -409,18 +409,21 @@ const Player = React.createClass({
         const { playing } = this.state;
 
         let title;
+        let path;
         if (!currentItem) {
             title = (<span>Stopped</span>);
+            path = "";
         } else {
             title = [];
             title.push(currentItem.title || File.basename(currentItem.file));
             if (!playing) {
                 title.push(" (Paused)");
             }
+            path = File.path(currentItem.file);
         }
 
         return (
-            <div className="player-title">
+            <div className="player-title" title={path}>
                 {title}
             </div>
         );
