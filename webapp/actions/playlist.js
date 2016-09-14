@@ -33,7 +33,7 @@ export function playlistClear() {
 // Add an array of files to the playlist.
 // Fetches the file's metadata before appending them.
 export function playlistAddFiles(files) {
-    return (dispatch, getState) => {
+    return (dispatch) => {
         if (files.length === 0) {
             return;
         }

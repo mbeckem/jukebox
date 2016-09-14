@@ -108,7 +108,7 @@ const FileBrowser = React.createClass({
     },
 
     render() {
-        const { path, state, error, items } = this.props;
+        const { path, state, items } = this.props;
 
         const body = () => {
             switch (state) {

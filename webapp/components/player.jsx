@@ -98,6 +98,7 @@ const Progress = React.createClass({
 
 const Volume = React.createClass({
     propTypes: {
+        volume: PropTypes.number.isRequired,
         onVolumeSelected: PropTypes.func.isRequired,
     },
 

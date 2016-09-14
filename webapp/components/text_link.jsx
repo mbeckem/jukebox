@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 
 import { suppressEvent } from "../utils.js";
 
@@ -23,5 +23,12 @@ function TextLink({
         </a>
     );
 }
+
+TextLink.propTypes = {
+    onClick: PropTypes.func,
+    href: PropTypes.string,
+    text: PropTypes.string.isRequired,
+    className: PropTypes.string,
+};
 
 export default TextLink;
