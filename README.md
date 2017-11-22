@@ -1,11 +1,11 @@
-#Jukebox
+# Jukebox
 
 A web based music player that accesses files on the server's local file system,
 programmed in Python and Javascript.
 
 This is still a work in progress.
 
-##Dependencies
+## Dependencies
 
 At Development time:
 * Python 3.5 (see `requirements.txt`)
@@ -17,7 +17,7 @@ Python and Node dependencies can by installed by simply executing `make deps`.
 
 At runtime, only Python 3.5 and the libraries listed in `requirements.txt` are needed.
 
-##Compiling
+## Compiling
 
 Use `make` to build the production variant of the application. `make debug` produces
 the development version which includes, for example, unoptimized Javascript.
@@ -25,10 +25,10 @@ the development version which includes, for example, unoptimized Javascript.
 After the successful termination of `make`, the application can be found inside the
 `build/dist` directory.
 
-##Running
+## Running
 
 Inside the `dist` directory, execute `main.py`. See `--help` for supported options.
 
-##LICENSE
+## LICENSE
 
 MIT. See `LICENSE` file.
